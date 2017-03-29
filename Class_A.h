@@ -6,7 +6,7 @@ class A {
     A();
     int rating(int x);
     double elo(float m, float n);    
-    float R(float a, float b, float c, double d);
+    int R(int a, int b, float c, double d);
 
  
     

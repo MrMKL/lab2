@@ -10,9 +10,10 @@ int A::rating(int x) {
 }
 
 double A::elo(float m, float n) {
-  return 1 / (1 + pow(10.0, (double)(m - n) / 400.0));
+  return 1.0 / (1.0 + pow(10.0, (double)(m - n) / 400.0));
 }
 
-float A::R(float a, float b, float c, double d) {
-  return (a + b * (c - d));
+int A::R(int a, int b, float c, double d) {
+  return round(a + b * (c - d));
 }
+
