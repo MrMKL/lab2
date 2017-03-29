@@ -15,6 +15,7 @@ int main() {
   
   int k;
   int a, b;
+  int new_a, new_b;
   float m[6];
   ifstream infile("file.in",  ios::in);
   if(!infile) {
@@ -32,16 +33,14 @@ int main() {
      
     outfile << a << " " << b << " " << endl;
     for(int p = 0; p < 6; ++p) {
-      outfile << Player_A.R(a, k, m[p], Player_A.elo(b, a)) << " ";
-      outfile << Player_B.R(b, k, (1.0 - m[p]), Player_B.elo(a, b)) << endl;
-      a = Player_A.rating(Player_A.R(a, k, m[p], Player_A.elo(b, a)));
-      b = Player_B.rating(Player_B.R(b, k, (1.0 - m[p]), Player_B.elo(a, b)));    
+      new_a = Player_A.R(a, k, m[p], Player_A.elo(b, a));
+      new_b = Player_B.R(b, k, (1.0 - m[p]), Player_B.elo(a, b));
+      
+      outfile << new_a << " ";
+      outfile << new_b << endl;
+      a = Player_A.rating(new_a);
+      b = Player_B.rating(new_b);    
     }
-
-
-    
-   
-    
   } 
 }
 
